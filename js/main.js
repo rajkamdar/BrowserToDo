@@ -20,9 +20,19 @@ function addToDo(e){
 		localStorage.setItem("todolist",JSON.stringify(todolist));
 	}
 
-
+	fetchList();
 	//prevents auto-refresh
 	e.preventDefault();
+}
+function deletetodo(text){
+	var todolist=JSON.parse(localStorage.getItem('todolist'));
+	for(var i=0;i<todolist.length;i++){
+		if(todolist[i].text==text){
+			todolist.splice(i,1);
+		}
+	}
+	localStorage.setItem("todolist",JSON.stringify(todolist));
+	fetchList();	
 }
 function fetchList(){
 	var todolist=JSON.parse(localStorage.getItem('todolist'));
@@ -30,10 +40,10 @@ function fetchList(){
 	listdiv.innerHTML='';
 	for(var i=0;i<todolist.length;i++){
 		var text=todolist[i].text;
-		console.log(text);
-		listdiv.innerHTML+='<div class="well">'+'<h4>'+text+'</h4></div>'
+		listdiv.innerHTML+='<div class="well">'+'<h4>'+text+' <a onclick="deletetodo(\''+text+'\')"class="btn btn-danger"  href="#">Remove</a></h4></div>'
 	}
 }
+
 function get(x){
 	return document.getElementById(x);
 }
