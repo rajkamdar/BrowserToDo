@@ -19,7 +19,7 @@ function addToDo(e){
 		todolist.push(todo);
 		localStorage.setItem("todolist",JSON.stringify(todolist));
 	}
-
+	get('todoform').reset();
 	fetchList();
 	//prevents auto-refresh
 	e.preventDefault();
