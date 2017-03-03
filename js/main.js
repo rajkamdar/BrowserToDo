@@ -48,3 +48,35 @@ function fetchList(){
 function get(x){
 	return document.getElementById(x);
 }
+
+function signIn(){
+var provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+
+  // The signed-in user info.
+ 	 var user = result.user;
+	//window.location="list.html";
+  createUser(user.uid,user.displayName,user.email);
+}).catch(function(error) {
+    console.log(error.message);
+});
+}
+
+function createUser(uid,uname,email){
+
+  var database = firebase.database();
+
+  var usersRef=database.ref("users");
+
+  var user = {
+    name: uname,
+    email: email,
+    id: uid
+  };
+
+  usersRef.child(uid).set(user).then(function(){
+    //window.location="chat.html";
+  });
+
+}
