@@ -76,7 +76,7 @@ function createUser(uid,uname,email){
   };
 
   usersRef.child(uid).set(user).then(function(){
-    //window.location="chat.html";
+    window.location="list.html";
   });
 
 }
