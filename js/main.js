@@ -6,7 +6,8 @@ function addToDo(e){
 	var todo={
 		text:todoText
 	}
-
+	if(!todoText)
+		return;
 
 	if(localStorage.getItem('todolist')===null){
 		var todolist=[];
