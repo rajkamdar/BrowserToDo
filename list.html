@@ -14,7 +14,7 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
 
-  <body onload="fetchList()">
+  <body>
 
     <div class="container">
       <div class="header clearfix">
@@ -38,12 +38,23 @@
         </div>
 
       <footer class="footer">
-        <p>&copy; Raj Kamdar.</p>
+        <p>Raj Kamdar.</p>
       </footer>
 
     </div> <!-- /container -->
-  
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDNqmk_OPbKQMkvgkSf9vi0O42_WRFsRcY",
+    authDomain: "worklist-97bae.firebaseapp.com",
+    databaseURL: "https://worklist-97bae.firebaseio.com",
+    storageBucket: "worklist-97bae.appspot.com",
+    messagingSenderId: "292353917733"
+  };
+  firebase.initializeApp(config);
+</script>
     <script type="text/javascript" src="js/main.js"></script>
+     <script type="text/javascript" src="js/todo.js"></script>
   </body>
 </html>
